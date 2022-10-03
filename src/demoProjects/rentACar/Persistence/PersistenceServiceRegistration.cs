@@ -1,3 +1,4 @@
+using Application.Services.AuthService;
 using Application.Services.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +18,11 @@ public static class PersistenceServiceRegistration
         
         services.AddScoped<IBrandRepository, BrandRepository>();
         services.AddScoped<IModelRepository, ModelRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
+        services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+        services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
+     
 
         return services;
     }
